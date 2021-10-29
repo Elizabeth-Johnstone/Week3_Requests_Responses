@@ -73,7 +73,6 @@ const repeatMyParam = () => {
 
     let repeatText = document.getElementById('repeat-text')
     repeatText.textContent = res.data
-    repeatEl.display = 'block';
     })
     }
 
@@ -86,13 +85,16 @@ document.getElementById('repeat-button').addEventListener('click', repeatMyParam
 // PROBLEM 8
     Time to attach a query to our request! Write a function that makes a get request to 'http://localhost:3000/query-test', with a query of your choice on the end! Outside of your new function, select the button with the id "query-button" and add a click event listener that calls your function.
 */
-// function getRequest = () => {
-//     axios.get('http://localhost:3000/repeat?random')
-//     .then(({data}) => console.log(data))
-//     repeatEl.display = 'block';
-// }
+const getRequest = () => {
+    axios.get('http://localhost:3000/query-test/?myquery=random')
+    .then(res => {
 
-// document.getElementById('query-button').addEventListener('click', getRequest)
+        let repeatText = document.getElementById('repeat-text')
+        repeatText.textContent = res.data
+        })
+}
+
+document.getElementById('query-button').addEventListener('click', getRequest)
 
 ////////////////
 //INTERMEDIATE//
